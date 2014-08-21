@@ -17,12 +17,13 @@ Extract the [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) https://github.com
 Yii::setPathOfAlias('TaggedCache', $basepath . DIRECTORY_SEPARATOR . 'extensions/yii-cache-tag-dependency');
 ```
 
-2. This extension required configured cache
+2. This extension require configured cache
 
 
-Base Usage
-============
+## Base Usage
 
+```php
+<?php
 $cache = \Yii::app()->cache;
 
 // create new cache dependency with set of three tags
@@ -37,14 +38,14 @@ var_dump($cache->get('cacheKey'));
 // remove (invalidate) one or several tags
 $tag = new \TaggedCache\Tag('D'); $tag->delete();
 
-// Check if cached value is absent in cache
+// check if cached value is absent in cache
 var_dump($cache->get('cacheKey'));
-
+```
 
 
 ## Success stories
 
-# Situation One:
+### Situation One:
 1. user has license and can upgrade or prolong it
 1. available application featured depends on license
 
@@ -113,7 +114,7 @@ class License extends CActiveRecord
             ->cache(24*60*60, $dependency) // use cache to store data, max 1 day
             ->notExpiredToday()
             ->ownedByUser($user_id)
-            findAll();
+            ->findAll();
     }
 
     public function findAllPremiumUsers()
@@ -124,10 +125,11 @@ class License extends CActiveRecord
             ->cache(24*60*60, $dependency) // use cache to store data, max 1 day
             ->notExpiredToday()
             ->isPremium()
-            findAll();
+            ->findAll();
     }
 }
 ```
+
 
 * example: see License::beforeSave() for invalidation of cache for one user
 ```php
@@ -141,7 +143,7 @@ $userLicense->owner_id = \Yii::app()->user->id;
 $userLicense->upgradeToPremium();
 ```
 
-# Situation Two
+### Situation Two
 An application administrator can turn on and off some application features
 across the entire application at once
 
@@ -170,6 +172,7 @@ if($this->beginCache('my-features-'.$userId, array('duration'=>3600*24, 'depende
     </ul>
 <?php $this->endCache(); } ?>
 ```
+
 
 * example: clear all data associated with rights of one user
 ```php
