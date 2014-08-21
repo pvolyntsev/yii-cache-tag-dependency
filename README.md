@@ -8,7 +8,7 @@ Based on idea of Косыгин Александр < http://habrahabr.ru/users/k
 
 ## Installation
 
-Extract the [yii-cache-tag-dependency](/pvolyntsev/yii-cache-tag-dependency/archive/master.zip) from archive under protected/extensions
+Clone project or extract the yii-cache-tag-dependency from archive under protected/extensions of your Yii application.
 
 ## Configuration
 
