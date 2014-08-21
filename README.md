@@ -8,7 +8,7 @@ Based on idea of Косыгин Александр < http://habrahabr.ru/users/k
 
 ## Installation
 
-Extract the [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) https://github.com/pvolyntsev/yii-cache-tag-dependency/archive/master.zip from archive under protected/extensions
+Extract the [yii-cache-tag-dependency](/pvolyntsev/yii-cache-tag-dependency/archive/master.zip) from archive under protected/extensions
 
 ## Configuration
 
